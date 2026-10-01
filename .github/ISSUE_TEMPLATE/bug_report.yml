@@ -1,0 +1,111 @@
+name: Bug Report
+description: Создать отчет о дефекте
+title: "[Ошибка]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Форма регистрации нового дефекта
+        Пожалуйста, заполните все обязательные поля для отправки баг-репорта.
+
+  - type: textarea
+    id: title_report
+    attributes:
+      label: Заголовок
+      description: Краткое описание сути дефекта
+      placeholder: Например, Ошибка авторизации при вводе спецсимволов
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание
+      description: Подробное описание обнаруженного дефекта
+      placeholder: Опишите дефект более детально
+    validations:
+      required: true
+
+  - type: textarea
+    id: preconditions
+    attributes:
+      label: Предусловия
+      description: Условия, необходимые для воспроизведения дефекта
+      placeholder: Пользователь должен быть авторизован...
+    validations:
+      required: false
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Пошаговый сценарий, как вызвать ошибку
+      placeholder: |
+        1. Перейти на вкладку...
+        2. Нажать кнопку...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемый результат
+      description: Как должна вести себя система по спецификации
+      placeholder: Открывается главная страница профиля
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактический результат
+      description: Что произошло в системе на самом деле
+      placeholder: Появляется ошибка 500 в консоли разработчика
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Скриншоты / Доп. материалы
+      description: Ссылки на логи, скриншоты или видеозапись экрана
+      placeholder: Перетащите файлы сюда или вставьте ссылки
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Приоритет
+      description: Очередность исправления дефекта
+      options:
+        - Low
+        - Medium
+        - High
+        - Critical
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Серьезность
+      description: Степень влияния дефекта на работу приложения
+      options:
+        - Trivial
+        - Minor
+        - Major
+        - Critical
+        - Blocker
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: check_duplicates
+    attributes:
+      label: Проверка перед отправкой
+      description: Подтверждение ознакомления со старыми баг-репортами
+      options:
+        - label: Я подтверждаю, что ознакомился с уже существующими отчетами о дефектах
+          required: true
